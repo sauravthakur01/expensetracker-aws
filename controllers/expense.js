@@ -25,7 +25,7 @@ exports.getExpenses = async(req,res,next)=>{
     
     let limit_items = +(req.body.itemsPerPage) || 5 ;
 
-    console.log(+(req.body.itemsPerPage))
+    // console.log(+(req.body.itemsPerPage))
 
     let totalItems 
 
@@ -99,8 +99,8 @@ exports.getLeaderboardUserExpense = async(req,res,next)=>{
     try {
         if(req.user.ispremiumuser){
             let userId = req.params.loadUserId;
-            console.log(userId)
-            console.log('##############################S')
+            // console.log(userId)
+            // console.log('##############################S')
             let user = await User.findOne({where:{id:userId}})
             const expenses = await user.getExpenses();
             

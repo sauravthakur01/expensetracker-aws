@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const sequelize = require('./util/database');
 const cors = require('cors');
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const compression = require('compression')
 const fs = require('fs');
 const path = require('path');
@@ -29,10 +29,11 @@ const forgetpassRouter = require('./routes/forgetpass')
 
 app.use(express.json())
 
-app.use(helmet());
+// app.use(helmet());
 app.use(cors());
 app.use(compression());
 app.use(morgan('combined', {stream: accessLogStream}));
+
 
 app.use(bodyParser.json({extended:false}))
 
@@ -40,6 +41,10 @@ app.use('/user' , userRouter )
 app.use('/expense' , expenseRouter )
 app.use('/payment' , purchaseRouter)
 app.use('/password' , forgetpassRouter)
+
+app.use((req,res)=>{
+    res.sendFile(path.join(__dirname ,`views/${req.url}` ))
+})
 
 Expense.belongsTo(User);
 User.hasMany(Expense);
