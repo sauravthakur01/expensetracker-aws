@@ -33,7 +33,7 @@ app.use(express.json())
 app.use(cors());
 app.use(compression());
 // app.use(morgan('combined', {stream: accessLogStream}));
-
+console.log('hiiiiiiiiiiiiiiii')
 
 app.use(bodyParser.json({extended:false}))
 
@@ -70,3 +70,4 @@ sequelize.sync()
 })
     
 
+////////////////////////cicd branch ////////////////////////////////
