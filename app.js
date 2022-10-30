@@ -7,7 +7,7 @@ const cors = require('cors');
 const compression = require('compression')
 const fs = require('fs');
 const path = require('path');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 // const https = require('https');
 
 
@@ -32,8 +32,8 @@ app.use(express.json())
 // app.use(helmet());
 app.use(cors());
 app.use(compression());
-app.use(morgan('combined', {stream: accessLogStream}));
-
+// app.use(morgan('combined', {stream: accessLogStream}));
+console.log('hiiiiiiiiiiiiiiii')
 
 app.use(bodyParser.json({extended:false}))
 
@@ -70,3 +70,4 @@ sequelize.sync()
 })
     
 
+////////////////////////cicd branch ////////////////////////////////
