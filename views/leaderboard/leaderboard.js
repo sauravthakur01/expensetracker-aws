@@ -10,7 +10,7 @@ async function fetchuserExpenses(e){
 //    
     try {
         console.log(loadUserId , token)
-        let response = await axios.get(`http://54.174.108.24:3000/expense/getInfo/${loadUserId}`  ,  {headers : {'Authorization': token}} )
+        let response = await axios.get(`http://34.201.40.23:3000/expense/getInfo/${loadUserId}`  ,  {headers : {'Authorization': token}} )
         
         console.log(response)
         if(response.data.success){

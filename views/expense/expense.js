@@ -46,7 +46,7 @@ async function loadScreen(e){
 
 async function getLoadExpenses(page , itemsPerPage){
     try {
-        let response = await axios.post(`http://54.174.108.24:3000/expense/${page}` ,{itemsPerPage:itemsPerPage}  , {headers:{"Authorization" : token}})
+        let response = await axios.post(`http://34.201.40.23:3000/expense/${page}` ,{itemsPerPage:itemsPerPage}  , {headers:{"Authorization" : token}})
         // console.log(response.data.info)
         showExpenseOnScreen(response.data.data)
         showPagination(response.data.info)
@@ -124,7 +124,7 @@ async function addExpense(e){
             category:e.target.category.value
         }
         
-        let response = await axios.post("http://54.174.108.24:3000/expense/add-expense", expenseDetails, {headers : {'Authorization': token}})
+        let response = await axios.post("http://34.201.40.23:3000/expense/add-expense", expenseDetails, {headers : {'Authorization': token}})
         if(response.status === 201){
             // console.log(response.data.data)
             addExpenseOnscreen(response.data.data)
@@ -152,7 +152,7 @@ function addExpenseOnscreen(data){
 
 async function remove (id){
     try {
-        await axios.delete(`http://54.174.108.24:3000/expense/delete-expense/${id}` , {headers : {'Authorization': token}} )
+        await axios.delete(`http://34.201.40.23:3000/expense/delete-expense/${id}` , {headers : {'Authorization': token}} )
         removeFromScreen(id)
     } catch (error) {
         console.log(error);
@@ -169,7 +169,7 @@ function removeFromScreen(id){
 document.getElementById('premium').onclick = async function(e){
     var x =0;
     try {
-        const response = await axios.post('http://54.174.108.24:3000/payment/premiummembership', x, {headers : {'Authorization': token}})
+        const response = await axios.post('http://34.201.40.23:3000/payment/premiummembership', x, {headers : {'Authorization': token}})
 
         checkout(response.data);
     } catch (error) {
@@ -179,7 +179,7 @@ document.getElementById('premium').onclick = async function(e){
 
 async function getPremiumLeaderboard(){
     try {
-        const response = await axios.get('http://54.174.108.24:3000/expense/premium-leaderboard', {headers : {'Authorization': token}} )
+        const response = await axios.get('http://34.201.40.23:3000/expense/premium-leaderboard', {headers : {'Authorization': token}} )
         
         if(response.data.success){
             if(response.data.data.length>0){
@@ -234,7 +234,7 @@ function checkout(order){
             // console.log(response.razorpay_order_id);
             // console.log(response.razorpay_signature);
 
-            axios.post('http://54.174.108.24:3000/payment/updatestatus', response,
+            axios.post('http://34.201.40.23:3000/payment/updatestatus', response,
              {headers : {'Authorization': token}})
             .then(res => {
                 console.log("done");
