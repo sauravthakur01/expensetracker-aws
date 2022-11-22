@@ -15,7 +15,7 @@ async function login(e){
             password:e.target.password.value
         }
 
-        const response = await axios.post("http://54.174.108.24:3000/user/login", loginDetails)
+        const response = await axios.post("http://34.201.40.23:3000/user/login", loginDetails)
         if(response.status === 200){
             
             alert("User login sucessful")

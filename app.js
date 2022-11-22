@@ -11,7 +11,7 @@ const path = require('path');
 // const https = require('https');
 
 
-const accessLogStream = fs.createWriteStream('access.log', {flag: 'a'})
+// const accessLogStream = fs.createWriteStream('access.log', {flag: 'a'})
 
 const User = require('./models/user');
 const Expense = require('./models/expense');
@@ -33,7 +33,7 @@ app.use(express.json())
 app.use(cors());
 app.use(compression());
 // app.use(morgan('combined', {stream: accessLogStream}));
-console.log('hiiiiiiiiiiiiiiii')
+
 
 app.use(bodyParser.json({extended:false}))
 

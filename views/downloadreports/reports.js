@@ -5,7 +5,7 @@ let listno = 0 ;
 window.addEventListener('DOMContentLoaded' , async(e)=>{
     e.preventDefault()
     try {
-        let response = await axios.get('http://54.174.108.24:3000/expense/getAllDownloadUrl' , {headers: {Authorization: token}})
+        let response = await axios.get('http://34.201.40.23:3000/expense/getAllDownloadUrl' , {headers: {Authorization: token}})
         if(response.status === 200){
             showUrls(response.data)
         }
@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded' , async(e)=>{
 document.getElementById('download').onclick = async function(e){
     e.preventDefault()
     try {
-        let response = await axios.get('http://54.174.108.24:3000/expense/download' , {headers: {Authorization: token}})
+        let response = await axios.get('http://34.201.40.23:3000/expense/download' , {headers: {Authorization: token}})
         if(response.status === 200){
             showUrlOnscreen(response.data.downloadUrlData); 
             var a = document.createElement('a');

@@ -13,7 +13,7 @@ async function sendEmail(e){
     console.log(userDetails);
 
     try {
-        let response = await axios.post('http://54.174.108.24:3000/password/forgotpassword' , userDetails)
+        let response = await axios.post('http://34.201.40.23:3000/password/forgotpassword' , userDetails)
         if(response.status === 202){
             document.body.innerHTML += '<div style="color:red;text-align:center;margin-top:70px;">Mail Successfuly sent <div>'
         }else {
